@@ -860,6 +860,15 @@
   const year = new Date().getFullYear();
   const cr = document.getElementById('copyright');
   if (cr) cr.textContent = `© ${year} MIHAINTELLIGENCE SRL. Toate drepturile rezervate.`;
+
+  // Handle inbound hash (e.g. arriving from /privacy-policy/ via /#services):
+  // wipe the hash immediately so the URL stays clean, then scroll to the section.
+  const inboundHash = location.hash;
+  if (inboundHash) {
+    history.replaceState(null, '', location.pathname);
+    const dest = document.querySelector(inboundHash);
+    if (dest) requestAnimationFrame(() => dest.scrollIntoView({ behavior: 'smooth' }));
+  }
 </script>
 </body>
 </html>
