@@ -829,7 +829,7 @@
     document.body.style.overflow = isOpen ? 'hidden' : '';
   });
 
-  // Clean URL — intercept hash links and scroll without writing to the address bar
+  // Clean URL — intercept hash links, scroll without touching the address bar
   document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener('click', e => {
       e.preventDefault();
@@ -844,6 +844,8 @@
         const target = document.querySelector(id);
         if (target) target.scrollIntoView({ behavior: 'smooth' });
       }
+      // Belt-and-suspenders: overwrite any hash the browser may have written
+      history.replaceState(null, '', location.pathname);
     });
   });
 
