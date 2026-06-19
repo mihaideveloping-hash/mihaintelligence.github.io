@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy – MIHAINTELLIGENCE SRL</title>
+  <meta name="description" content="Privacy Policy for MIHAINTELLIGENCE SRL mobile applications. GDPR-compliant. Learn how we collect, use and protect your personal data." />
+  <meta name="robots" content="index, follow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg:        #07070f;
+      --surface:   #0f0f1e;
+      --surface-2: #151528;
+      --border:    rgba(255,255,255,0.07);
+      --text:      #eeeeff;
+      --muted:     rgba(238,238,255,0.48);
+      --accent:    #6366f1;
+      --accent-2:  #06b6d4;
+      --grad:      linear-gradient(135deg, #6366f1 0%, #06b6d4 100%);
+      --r:         14px;
+      --nav-h:     64px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ─── UTILITIES ─────────────────────────────────────── */
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .grad-text {
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .label {
+      display: inline-block;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: none; }
+
+    /* ─── NAVBAR ────────────────────────────────────────── */
+    #nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 200;
+      height: var(--nav-h);
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid transparent;
+      transition: background 0.35s, border-color 0.35s, backdrop-filter 0.35s;
+    }
+
+    #nav.scrolled {
+      background: rgba(7,7,15,0.82);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-color: var(--border);
+    }
+
+    #nav .container { display: flex; align-items: center; }
+
+    .nav-logo {
+      font-size: 1rem;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      text-decoration: none;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      flex-shrink: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+      margin-left: auto;
+    }
+
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-cta {
+      margin-left: 2rem;
+      padding: 0.5rem 1.25rem;
+      background: var(--grad);
+      border-radius: 100px;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: #fff !important;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.82; transform: translateY(-1px); }
+
+    .burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      margin-left: auto;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+    }
+    .burger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .burger.open span:nth-child(2) { opacity: 0; }
+    .burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: var(--nav-h);
+      inset-inline: 0;
+      background: rgba(7,7,15,0.97);
+      backdrop-filter: blur(20px);
+      flex-direction: column;
+      padding: 1.5rem 24px 2rem;
+      border-bottom: 1px solid var(--border);
+      z-index: 199;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      padding: 0.875rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .mobile-menu a:last-child { border-bottom: none; color: #818cf8; font-weight: 600; }
+    .mobile-menu a:hover { color: var(--text); }
+
+    /* ─── PAGE HEADER ───────────────────────────────────── */
+    .page-header {
+      padding: calc(var(--nav-h) + 4rem) 0 4rem;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-header-glow {
+      position: absolute;
+      top: -20%;
+      left: 30%;
+      width: 600px;
+      height: 500px;
+      background: radial-gradient(ellipse, rgba(99,102,241,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .page-header-dots {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 28px 28px;
+      pointer-events: none;
+    }
+
+    .page-header-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .page-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.3rem 0.875rem;
+      background: rgba(99,102,241,0.08);
+      border: 1px solid rgba(99,102,241,0.2);
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #a5b4fc;
+    }
+
+    .page-updated {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .page-title {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+      margin-bottom: 1.25rem;
+    }
+
+    .page-subtitle {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 560px;
+      line-height: 1.75;
+    }
+
+    /* ─── POLICY LAYOUT ─────────────────────────────────── */
+    .policy-wrap {
+      padding: 4rem 0 6rem;
+    }
+
+    .policy-layout {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    /* ─── TABLE OF CONTENTS ─────────────────────────────── */
+    .toc {
+      position: sticky;
+      top: calc(var(--nav-h) + 2rem);
+    }
+
+    .toc-label {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .toc-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.125rem;
+    }
+
+    .toc-list a {
+      display: block;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 0.4rem 0.75rem;
+      border-left: 2px solid transparent;
+      border-radius: 0 4px 4px 0;
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+      line-height: 1.45;
+    }
+
+    .toc-list a:hover {
+      color: var(--text);
+      border-left-color: var(--accent);
+      background: rgba(99,102,241,0.06);
+    }
+
+    .toc-list a.active {
+      color: #a5b4fc;
+      border-left-color: var(--accent);
+      background: rgba(99,102,241,0.08);
+    }
+
+    /* ─── POLICY CONTENT ────────────────────────────────── */
+    .policy-content { min-width: 0; }
+
+    .policy-section {
+      padding: 3rem 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .policy-section:first-child { border-top: none; padding-top: 0; }
+
+    .policy-section h2 {
+      font-size: 1.375rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.25rem;
+      scroll-margin-top: calc(var(--nav-h) + 1.5rem);
+    }
+
+    .policy-section h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      margin: 1.75rem 0 0.75rem;
+      color: var(--text);
+    }
+
+    .policy-section p {
+      font-size: 0.9375rem;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .policy-section p:last-child { margin-bottom: 0; }
+
+    .policy-section ul,
+    .policy-section ol {
+      margin: 0.75rem 0 1rem 0;
+      padding-left: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .policy-section ul li,
+    .policy-section ol li {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.7;
+      padding-left: 1.25rem;
+      position: relative;
+    }
+
+    .policy-section ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 0.75rem;
+      top: 3px;
+    }
+
+    .policy-section ol { counter-reset: ol-count; }
+    .policy-section ol li { counter-increment: ol-count; }
+    .policy-section ol li::before {
+      content: counter(ol-count) '.';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 600;
+      top: 1px;
+    }
+
+    .policy-section a {
+      color: #818cf8;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .policy-section a:hover { color: #a5b4fc; text-decoration: underline; }
+
+    /* inline highlight */
+    .highlight {
+      display: inline;
+      background: rgba(99,102,241,0.12);
+      border: 1px solid rgba(99,102,241,0.2);
+      border-radius: 4px;
+      padding: 0.1em 0.4em;
+      font-size: 0.875em;
+      font-weight: 500;
+      color: #a5b4fc;
+    }
+
+    /* info box */
+    .info-box {
+      padding: 1.25rem 1.5rem;
+      background: rgba(99,102,241,0.07);
+      border: 1px solid rgba(99,102,241,0.18);
+      border-radius: var(--r);
+      margin: 1.25rem 0;
+    }
+
+    .info-box p {
+      margin: 0;
+      font-size: 0.875rem;
+      color: rgba(238,238,255,0.65);
+      line-height: 1.7;
+    }
+
+    .info-box strong { color: #c7d2fe; }
+
+    /* data table */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.25rem 0;
+      font-size: 0.875rem;
+    }
+
+    .data-table th {
+      text-align: left;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 0.625rem 1rem;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+    }
+
+    .data-table th:first-child { border-radius: var(--r) 0 0 0; }
+    .data-table th:last-child  { border-radius: 0 var(--r) 0 0; }
+
+    .data-table td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+      line-height: 1.6;
+      vertical-align: top;
+    }
+
+    .data-table td:first-child { color: var(--text); font-weight: 500; }
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table tr:last-child td:first-child { border-radius: 0 0 0 var(--r); }
+    .data-table tr:last-child td:last-child  { border-radius: 0 0 var(--r) 0; }
+
+    .data-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
+
+    .table-wrap {
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      overflow: hidden;
+      overflow-x: auto;
+      margin: 1.25rem 0;
+    }
+
+    /* ─── GDPR RIGHTS CARDS ─────────────────────────────── */
+    .rights-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .right-card {
+      padding: 1.5rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+
+    .right-card::after {
+      content: '';
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 1px;
+      background: var(--grad);
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+
+    .right-card:hover { border-color: rgba(99,102,241,0.25); transform: translateY(-3px); }
+    .right-card:hover::after { opacity: 1; }
+
+    .right-card-art {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.35rem;
+    }
+
+    .right-card h3 {
+      font-size: 0.9375rem;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      margin: 0 0 0.625rem;
+      color: var(--text);
+    }
+
+    .right-card p {
+      font-size: 0.8125rem;
+      color: var(--muted);
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    /* ─── CONTACT BOX ───────────────────────────────────── */
+    .contact-box {
+      margin-top: 2.5rem;
+      padding: 3rem 2.5rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: calc(var(--r) * 1.75);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-box::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(99,102,241,0.1) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .contact-box h3 {
+      font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.75rem;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      font-size: 0.9375rem;
+      max-width: 440px;
+      margin: 0 auto 2rem;
+      line-height: 1.75;
+    }
+
+    .email-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.875rem 1.875rem;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--text);
+      text-decoration: none;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+    .email-link:hover { border-color: rgba(99,102,241,0.4); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.3); }
+    .email-link svg { flex-shrink: 0; opacity: 0.55; }
+
+    /* ─── FOOTER ────────────────────────────────────────── */
+    footer { border-top: 1px solid var(--border); }
+
+    .footer-main {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      padding: 3rem 0 2.5rem;
+    }
+
+    .footer-brand-name {
+      font-size: 1rem;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-brand p { font-size: 0.8rem; color: var(--muted); line-height: 1.7; }
+
+    .footer-info { text-align: right; }
+    .footer-info p { font-size: 0.8rem; color: var(--muted); line-height: 1.85; }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding: 1.25rem 0;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .footer-bottom p { font-size: 0.75rem; color: var(--muted); }
+
+    .footer-nav {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 0.75rem;
+    }
+
+    .footer-nav a {
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-nav a:hover { color: var(--text); }
+    .footer-nav a.active { color: #818cf8; }
+
+    /* ─── RESPONSIVE ────────────────────────────────────── */
+    @media (max-width: 820px) {
+      .nav-links, .nav-cta { display: none; }
+      .burger { display: flex; }
+
+      .policy-layout { grid-template-columns: 1fr; gap: 0; }
+      .toc { display: none; }
+
+      .rights-grid { grid-template-columns: 1fr; }
+
+      .contact-box { padding: 2rem 1.25rem; }
+
+      .footer-main { flex-direction: column; gap: 2rem; }
+      .footer-info { text-align: left; }
+      .footer-bottom { flex-direction: column; }
+    }
+
+    @media (min-width: 821px) and (max-width: 1000px) {
+      .policy-layout { grid-template-columns: 180px 1fr; gap: 3rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAVBAR ─────────────────────────────────────────── -->
+<nav id="nav">
+  <div class="container">
+    <a href="/" class="nav-logo">MIHAINTELLIGENCE</a>
+    <ul class="nav-links">
+      <li><a href="/#about">About</a></li>
+      <li><a href="/#services">Services</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+    <a href="/#contact" class="nav-cta">Get in touch</a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
+  <a href="/#about">About</a>
+  <a href="/#services">Services</a>
+  <a href="/#contact">Contact</a>
+  <a href="/#contact">Get in touch →</a>
+</div>
+
+<!-- ── PAGE HEADER ────────────────────────────────────── -->
+<div class="page-header">
+  <div class="page-header-dots" aria-hidden="true"></div>
+  <div class="page-header-glow" aria-hidden="true"></div>
+  <div class="container">
+    <div class="page-header-meta">
+      <span class="page-badge">GDPR Compliant · EU</span>
+      <span class="page-updated">Last updated: <span id="lastUpdated">June 19, 2026</span></span>
+    </div>
+    <h1 class="page-title">Privacy <span class="grad-text">Policy</span></h1>
+    <p class="page-subtitle">This policy explains what personal data we collect in our mobile applications, how we use it, and what rights you have under the GDPR.</p>
+  </div>
+</div>
+
+<!-- ── POLICY BODY ────────────────────────────────────── -->
+<div class="policy-wrap">
+  <div class="container">
+    <div class="policy-layout">
+
+      <!-- TABLE OF CONTENTS -->
+      <aside class="toc" aria-label="Table of contents">
+        <p class="toc-label">Contents</p>
+        <ul class="toc-list" id="tocList">
+          <li><a href="#s1">1. Introduction</a></li>
+          <li><a href="#s2">2. Data Controller</a></li>
+          <li><a href="#s3">3. Data We Collect</a></li>
+          <li><a href="#s4">4. How We Use Your Data</a></li>
+          <li><a href="#s5">5. Third-Party Services</a></li>
+          <li><a href="#s6">6. Data Retention</a></li>
+          <li><a href="#s7">7. Your GDPR Rights</a></li>
+          <li><a href="#s8">8. Children's Privacy</a></li>
+          <li><a href="#s9">9. Security</a></li>
+          <li><a href="#s10">10. Policy Changes</a></li>
+          <li><a href="#s11">11. Contact & Complaints</a></li>
+        </ul>
+      </aside>
+
+      <!-- CONTENT -->
+      <main class="policy-content">
+
+        <!-- 1. INTRODUCTION -->
+        <div class="policy-section fade-up" id="s1">
+          <h2>1. Introduction</h2>
+          <p>
+            MIHAINTELLIGENCE SRL ("we", "us", "our") is a Romanian limited liability company registered in Romania and operating under the laws of the European Union, including the General Data Protection Regulation (EU) 2016/679 (<strong>GDPR</strong>).
+          </p>
+          <p>
+            This Privacy Policy applies to all mobile applications published by MIHAINTELLIGENCE SRL on the Apple App Store and Google Play Store, as well as any associated backend services. It describes what personal data we collect, why we collect it, how long we keep it, and the rights you have as a data subject.
+          </p>
+          <div class="info-box">
+            <p><strong>Scope:</strong> This policy covers any app distributed by MIHAINTELLIGENCE SRL. Individual apps may display a supplementary in-app notice if they collect data beyond what is described here.</p>
+          </div>
+        </div>
+
+        <!-- 2. DATA CONTROLLER -->
+        <div class="policy-section fade-up" id="s2">
+          <h2>2. Data Controller</h2>
+          <p>The data controller for all personal data processed under this policy is:</p>
+          <div class="info-box">
+            <p>
+              <strong>MIHAINTELLIGENCE SRL</strong><br>
+              CUI: 51480000&nbsp; · &nbsp;Nr. Reg.: J2025019742006<br>
+              Sediu social: Focsani, România<br>
+              Email: <a href="mailto:mihaideveloping@gmail.com">mihaideveloping@gmail.com</a>
+            </p>
+          </div>
+          <p>
+            You may contact us at any time regarding the processing of your personal data using the contact details above. We aim to respond to all privacy inquiries within <span class="highlight">30 days</span>, as required by GDPR Article 12.
+          </p>
+        </div>
+
+        <!-- 3. DATA WE COLLECT -->
+        <div class="policy-section fade-up" id="s3">
+          <h2>3. Data We Collect</h2>
+          <p>
+            We collect only the data that is necessary for the features and performance of our applications. The categories below reflect what our apps <em>may</em> collect; each app's App Store / Play Store listing identifies which categories apply to that specific app.
+          </p>
+
+          <h3>3.1 Account & Registration Data</h3>
+          <p>When you create an account or sign in, we may collect:</p>
+          <ul>
+            <li>Full name or display name</li>
+            <li>Email address</li>
+            <li>Password (stored as a one-way cryptographic hash — never in plain text)</li>
+            <li>Profile photo (if you choose to upload one)</li>
+            <li>Authentication tokens from third-party sign-in providers (Sign in with Apple, Google)</li>
+          </ul>
+
+          <h3>3.2 Usage & Interaction Data</h3>
+          <ul>
+            <li>In-app actions and feature usage (e.g., screens visited, buttons tapped)</li>
+            <li>Session duration and frequency of use</li>
+            <li>Search queries entered within the app</li>
+            <li>Content created, edited or deleted by you within the app</li>
+          </ul>
+
+          <h3>3.3 Device & Technical Data</h3>
+          <ul>
+            <li>Device model and manufacturer</li>
+            <li>Operating system version (iOS / Android)</li>
+            <li>App version</li>
+            <li>Language and locale settings</li>
+            <li>Time zone</li>
+            <li>Anonymized or pseudonymized device identifier (IDFV on iOS; Android ID on Android)</li>
+            <li>IP address (processed transiently for security; not stored long-term)</li>
+          </ul>
+
+          <h3>3.4 Push Notification Tokens</h3>
+          <p>
+            If you grant permission, we collect a push notification token issued by Apple (APNs) or Google (FCM) to deliver in-app notifications. You can revoke this permission at any time in your device Settings.
+          </p>
+
+          <h3>3.5 Crash Reports & Diagnostics</h3>
+          <p>
+            We use crash reporting tools to collect stack traces and diagnostic logs when the app crashes or encounters an error. These reports help us identify and fix bugs. They are pseudonymized and do not intentionally include personal content you have created.
+          </p>
+
+          <h3>3.6 Location Data</h3>
+          <p>
+            We only collect precise or approximate location data if a specific feature of the app requires it, and only after requesting explicit permission. The in-app permission dialog will clearly explain why location access is needed. You may deny or revoke this permission at any time.
+          </p>
+
+          <h3>3.7 Data We Do NOT Collect</h3>
+          <ul>
+            <li>We do not collect payment card numbers or banking details (handled by App Store / Google Play billing)</li>
+            <li>We do not collect contacts, photos, or files from your device without an explicit feature request and your permission</li>
+            <li>We do not sell your personal data to third parties</li>
+            <li>We do not use your data for automated profiling that produces legal or similarly significant effects</li>
+          </ul>
+        </div>
+
+        <!-- 4. HOW WE USE YOUR DATA -->
+        <div class="policy-section fade-up" id="s4">
+          <h2>4. How We Use Your Data</h2>
+          <p>We process your personal data only where we have a valid legal basis under GDPR Article 6. The table below maps each purpose to its legal basis.</p>
+
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Purpose</th>
+                  <th>Data used</th>
+                  <th>Legal basis (GDPR Art. 6)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Provide and operate the app's core features</td>
+                  <td>Account data, usage data</td>
+                  <td>Art. 6(1)(b) — Performance of contract</td>
+                </tr>
+                <tr>
+                  <td>User authentication and account security</td>
+                  <td>Email, password hash, auth tokens, IP</td>
+                  <td>Art. 6(1)(b) — Performance of contract</td>
+                </tr>
+                <tr>
+                  <td>Send transactional notifications (e.g., account alerts)</td>
+                  <td>Email, push token</td>
+                  <td>Art. 6(1)(b) — Performance of contract</td>
+                </tr>
+                <tr>
+                  <td>Improve app performance and fix bugs</td>
+                  <td>Crash reports, device data, usage data</td>
+                  <td>Art. 6(1)(f) — Legitimate interests</td>
+                </tr>
+                <tr>
+                  <td>Send marketing or promotional messages</td>
+                  <td>Email, push token</td>
+                  <td>Art. 6(1)(a) — Consent (opt-in only)</td>
+                </tr>
+                <tr>
+                  <td>Comply with legal obligations</td>
+                  <td>Any data required by law</td>
+                  <td>Art. 6(1)(c) — Legal obligation</td>
+                </tr>
+                <tr>
+                  <td>Respond to GDPR requests</td>
+                  <td>Account data, any data you provide</td>
+                  <td>Art. 6(1)(c) — Legal obligation</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>Where we rely on <strong>legitimate interests</strong> (Art. 6(1)(f)), we have assessed that our interests in improving app quality do not override your fundamental rights. You may object to such processing at any time (see Section 7).</p>
+        </div>
+
+        <!-- 5. THIRD-PARTY SERVICES -->
+        <div class="policy-section fade-up" id="s5">
+          <h2>5. Third-Party Services & Data Sharing</h2>
+          <p>
+            We use a limited number of third-party processors to operate our apps. All processors are contractually bound by a Data Processing Agreement (DPA) and are GDPR-compliant. We do not sell, rent, or trade your personal data.
+          </p>
+          <ul>
+            <li><strong>Cloud infrastructure (e.g., AWS, GCP):</strong> Hosts our backend servers and databases within EU or EU-adequate regions where possible.</li>
+            <li><strong>Crash reporting (e.g., Firebase Crashlytics, Sentry):</strong> Receives pseudonymized diagnostic data to help us fix bugs.</li>
+            <li><strong>Analytics (optional, consent-gated):</strong> Aggregated, anonymized usage statistics to understand feature adoption.</li>
+            <li><strong>Push notification providers (APNs / FCM):</strong> Apple and Google deliver push messages; your notification token is shared with the relevant platform provider.</li>
+            <li><strong>Authentication providers (Apple, Google):</strong> If you use "Sign in with Apple" or "Sign in with Google," these providers share a token and, at your option, a name and email with us.</li>
+          </ul>
+
+          <h3>5.1 International Transfers</h3>
+          <p>
+            Some processors may process data outside the European Economic Area (EEA). When this occurs, we ensure appropriate safeguards are in place — such as Standard Contractual Clauses (SCCs) approved by the European Commission or adequacy decisions under GDPR Chapter V.
+          </p>
+
+          <h3>5.2 Legal Disclosure</h3>
+          <p>
+            We may disclose your data if required to do so by applicable law, court order, or government authority, or to protect our legal rights, the safety of users, or the integrity of our services.
+          </p>
+        </div>
+
+        <!-- 6. DATA RETENTION -->
+        <div class="policy-section fade-up" id="s6">
+          <h2>6. Data Retention</h2>
+          <p>We retain personal data only for as long as necessary to fulfil the purpose for which it was collected, or as required by law.</p>
+
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Data category</th>
+                  <th>Retention period</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Account & profile data</td>
+                  <td>Until account deletion, then up to 30 days (recovery window)</td>
+                </tr>
+                <tr>
+                  <td>Usage & session logs</td>
+                  <td>90 days rolling</td>
+                </tr>
+                <tr>
+                  <td>Crash reports</td>
+                  <td>12 months</td>
+                </tr>
+                <tr>
+                  <td>Push notification tokens</td>
+                  <td>Until revoked or account deleted</td>
+                </tr>
+                <tr>
+                  <td>Marketing consent records</td>
+                  <td>3 years from last interaction (legal obligation)</td>
+                </tr>
+                <tr>
+                  <td>GDPR request records</td>
+                  <td>3 years (legal obligation)</td>
+                </tr>
+                <tr>
+                  <td>Billing records (App Store / Play)</td>
+                  <td>Managed entirely by Apple / Google</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>When data is no longer needed, it is securely deleted or irreversibly anonymized.</p>
+        </div>
+
+        <!-- 7. GDPR RIGHTS -->
+        <div class="policy-section fade-up" id="s7">
+          <h2>7. Your Rights Under GDPR</h2>
+          <p>
+            As a data subject under the GDPR, you have the following rights. You may exercise any of these rights free of charge by contacting us at <a href="mailto:privacy@mihaintelligence.io">privacy@mihaintelligence.io</a>. We will respond within <span class="highlight">30 days</span>; complex cases may be extended by a further 60 days with notice.
+          </p>
+
+          <div class="rights-grid">
+            <div class="right-card">
+              <div class="right-card-art">Art. 15</div>
+              <h3>Right of Access</h3>
+              <p>Request a copy of all personal data we hold about you, along with information on how and why we process it.</p>
+            </div>
+
+            <div class="right-card">
+              <div class="right-card-art">Art. 16</div>
+              <h3>Right to Rectification</h3>
+              <p>Ask us to correct inaccurate personal data or complete incomplete data we hold about you.</p>
+            </div>
+
+            <div class="right-card">
+              <div class="right-card-art">Art. 17</div>
+              <h3>Right to Erasure</h3>
+              <p>Request deletion of your personal data ("right to be forgotten") where there is no overriding legal basis for continued processing.</p>
+            </div>
+
+            <div class="right-card">
+              <div class="right-card-art">Art. 18</div>
+              <h3>Right to Restriction</h3>
+              <p>Ask us to suspend processing of your data in specific circumstances, for example while a rectification request is pending.</p>
+            </div>
+
+            <div class="right-card">
+              <div class="right-card-art">Art. 20</div>
+              <h3>Right to Portability</h3>
+              <p>Receive a copy of data you provided to us in a structured, machine-readable format (JSON or CSV) to transfer to another service.</p>
+            </div>
+
+            <div class="right-card">
+              <div class="right-card-art">Art. 21</div>
+              <h3>Right to Object</h3>
+              <p>Object to processing based on legitimate interests (Art. 6(1)(f)) or to processing for direct marketing purposes at any time.</p>
+            </div>
+
+            <div class="right-card">
+              <div class="right-card-art">Art. 7(3)</div>
+              <h3>Right to Withdraw Consent</h3>
+              <p>Where processing is based on your consent, you may withdraw it at any time. Withdrawal does not affect the lawfulness of prior processing.</p>
+            </div>
+
+            <div class="right-card">
+              <div class="right-card-art">Art. 77</div>
+              <h3>Right to Lodge a Complaint</h3>
+              <p>File a complaint with the Romanian supervisory authority (ANSPDCP) or the DPA of your EU member state of residence.</p>
+            </div>
+          </div>
+
+          <div class="info-box" style="margin-top: 1.5rem;">
+            <p>
+              <strong>Romanian Supervisory Authority (ANSPDCP):</strong><br>
+              Autoritatea Națională de Supraveghere a Prelucrării Datelor cu Caracter Personal<br>
+              B-dul Gh. Magheru 28–30, Sector 1, 010336 București, România<br>
+              Website: <a href="https://www.dataprotection.ro" target="_blank" rel="noopener noreferrer">www.dataprotection.ro</a>
+            </p>
+          </div>
+        </div>
+
+        <!-- 8. CHILDREN'S PRIVACY -->
+        <div class="policy-section fade-up" id="s8">
+          <h2>8. Children's Privacy</h2>
+          <p>
+            Our applications are not directed at children under the age of <strong>16</strong> (or the applicable minimum digital consent age in the user's EU member state). We do not knowingly collect personal data from children under this age limit.
+          </p>
+          <p>
+            If a parent or guardian believes their child has provided us with personal data without consent, please contact us at <a href="mailto:privacy@mihaintelligence.io">privacy@mihaintelligence.io</a>. We will delete the data promptly upon verification.
+          </p>
+          <p>
+            Apps specifically designed for children or families will include a separate, reinforced privacy notice compliant with App Store and Play Store family policy requirements.
+          </p>
+        </div>
+
+        <!-- 9. SECURITY -->
+        <div class="policy-section fade-up" id="s9">
+          <h2>9. Data Security</h2>
+          <p>
+            We implement appropriate technical and organisational measures to protect your personal data against unauthorised access, accidental loss, destruction, or disclosure, in line with GDPR Article 32.
+          </p>
+          <ul>
+            <li>All data in transit is encrypted using TLS 1.2 or higher</li>
+            <li>Data at rest is encrypted using AES-256 or equivalent</li>
+            <li>Passwords are hashed using a strong one-way algorithm (bcrypt or Argon2)</li>
+            <li>Access to production data is restricted to authorised personnel on a need-to-know basis</li>
+            <li>We conduct regular security reviews and dependency audits</li>
+            <li>In the event of a personal data breach that is likely to result in risk to your rights, we will notify the relevant supervisory authority within <span class="highlight">72 hours</span> and affected users without undue delay, in line with GDPR Articles 33–34</li>
+          </ul>
+          <p>
+            No method of electronic transmission or storage is 100% secure. While we strive to use commercially acceptable means to protect your data, we cannot guarantee absolute security.
+          </p>
+        </div>
+
+        <!-- 10. POLICY CHANGES -->
+        <div class="policy-section fade-up" id="s10">
+          <h2>10. Changes to This Policy</h2>
+          <p>
+            We may update this Privacy Policy from time to time to reflect changes in our practices, technology, or legal requirements. When we make material changes, we will:
+          </p>
+          <ol>
+            <li>Update the "Last updated" date at the top of this page</li>
+            <li>Display an in-app notice or send an email notification to registered users</li>
+            <li>Where required by law, request renewed consent before the changes take effect</li>
+          </ol>
+          <p>
+            Continued use of our applications after the effective date of a revised policy constitutes acceptance of the new terms, to the extent permitted by applicable law. We encourage you to review this page periodically.
+          </p>
+        </div>
+
+        <!-- 11. CONTACT -->
+        <div class="policy-section fade-up" id="s11">
+          <h2>11. Contact &amp; GDPR Requests</h2>
+          <p>
+            For any questions about this Privacy Policy, to exercise your GDPR rights, or to report a data protection concern, please contact us. All requests related to personal data should be sent to our dedicated privacy email so they can be handled promptly.
+          </p>
+          <div class="contact-box">
+            <h3>Submit a GDPR Request</h3>
+            <p>Send your request to our privacy inbox. Include your full name and the email address associated with your account so we can verify your identity.</p>
+            <a href="mailto:mihaideveloping@gmail.com" class="email-link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+              </svg>
+              mihaideveloping@gmail.com
+            </a>
+          </div>
+        </div>
+
+      </main>
+    </div><!-- /policy-layout -->
+  </div><!-- /container -->
+</div><!-- /policy-wrap -->
+
+<!-- ── FOOTER ─────────────────────────────────────────── -->
+<footer>
+  <div class="container">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <div class="footer-brand-name">MIHAINTELLIGENCE</div>
+        <p>
+          SRL · Software development<br>
+          iOS, Android &amp; Backend<br>
+          Romania, European Union
+        </p>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a href="/">Home</a>
+          <a href="/privacy-policy/" class="active">Privacy Policy</a>
+          <a href="/terms/">Terms of Service</a>
+        </nav>
+      </div>
+      <div class="footer-info">
+        <p>
+          CUI: 51480000<br>
+          Nr. Reg.: J2025019742006<br>
+          Sediu: Focsani, România<br>
+          mihaideveloping@gmail.com
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p id="copyright">© 2026 MIHAINTELLIGENCE SRL. All rights reserved.</p>
+      <p>Registered in Romania under Law no. 31/1990 · GDPR compliant</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Navbar scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 24);
+  }, { passive: true });
+
+  // Mobile menu
+  const burger = document.getElementById('burger');
+  const menu   = document.getElementById('mobileMenu');
+
+  burger.addEventListener('click', () => {
+    const isOpen = menu.classList.toggle('open');
+    burger.classList.toggle('open', isOpen);
+    burger.setAttribute('aria-expanded', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+
+  menu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      menu.classList.remove('open');
+      burger.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Active TOC link on scroll
+  const sections = document.querySelectorAll('.policy-section[id]');
+  const tocLinks = document.querySelectorAll('.toc-list a');
+
+  const tocObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tocLinks.forEach(a => a.classList.remove('active'));
+        const active = document.querySelector(`.toc-list a[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, {
+    rootMargin: `-${64 + 32}px 0px -60% 0px`,
+    threshold: 0
+  });
+
+  sections.forEach(s => tocObserver.observe(s));
+
+  // Dynamic year
+  const year = new Date().getFullYear();
+  const cr = document.getElementById('copyright');
+  if (cr) cr.textContent = `© ${year} MIHAINTELLIGENCE SRL. All rights reserved.`;
+</script>
+</body>
+</html>
